@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Testando cogido php </h1>
-    <p> Ola <?php echo 'Giovani' ?> bora nessa </p>
+<?php 
 
-    <?php 
-        $boolean = false;
-
-        if ($boolean) {
-            $message = 'Verdadeiro';
-        }
-
-        $people = [
+    $people = [
             [
                 'name' => 'irineu',
                 'age' => 12,
@@ -34,19 +18,18 @@
             ]
         ];
 
-        function filterArray(array $array) {
-            foreach ($array as $person) {
-                if ($person['happy'] === true) {
-                    echo "<li>" . $person['name'] . "</li>";
-                };
-            }
+    $filteredArray = array_filter($people, function($item){
+        return $item['happy'] === true;
+    });
+
+    $booleanToHappy = function ($bool){
+        if ($bool){
+            return 'Yeah';
+        } else {
+            return 'No';
         }
+    };
 
-        filterArray($people);
+    require 'view/view.php';
 
-    ?>
-
-    
-
-</body>
-</html>
+?>
