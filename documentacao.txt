@@ -1,0 +1,64 @@
+Later - Dara posicionamento, tamanho que será acompanhado pelos layouts e terá a opção de ficar em tela cheia.
+
+Layout - acima do later e responsável por identificar com uma coluna se está em uso ou não, ter plano de fundo sendo imagem, vídeo ou oque for, além de através de chave estrangeira identificar os componentes. (Posso criar temas para que os componentes sigam uma padronização de cores correspondente ao tema escolhido)
+
+Componentes - armazenam suas características, sendo texto, imagem, cor, dados no geral.
+
+
+
+💡 Recursos Úteis para o Admin Panel
+Editor visual tipo drag and drop (usando libs como GrapesJS ou React Flow).
+
+Pré-visualização em tempo real (estilo builder).
+
+Upload de imagens/vídeos com validação de tamanho e tipo.
+
+Opções de agendamento de exibição das publicidades.
+
+Histórico de alterações por layout.
+
+
+
+📺 Considerações Técnicas para TVs e Fire Stick
+
+1. Modo Tela Cheia Automático
+
+- TVs e navegadores no Fire Stick geralmente não permitem ativar o modo fullscreen automaticamente sem interação do usuário.
+- Solução: exibir um botão “Iniciar Apresentação” que, ao ser clicado, ativa o modo fullscreen com `requestFullscreen()`.
+
+2. Interface Simples e Leve
+
+- Evite animações pesadas ou bibliotecas grandes.
+- Use fontes grandes e contraste alto para boa leitura à distância.
+
+3. Navegador Compatível
+
+- Fire Stick: use o navegador **Silk** ou **Firefox**.
+- Smart TVs: geralmente usam navegadores baseados em WebKit ou Chromium, então mantenha o HTML/CSS simples e compatível.
+
+4. Atualização Automática
+
+- Use `setInterval()` para trocar imagens e atualizar dados.
+- Para evitar travamentos, recarregue a página a cada X horas com `location.reload()`.
+
+---
+
+🧩 Funcionalidades Recomendadas para o Modo TV**
+
+| **Função** | **Descrição** |
+| --- | --- |
+| Troca automática de imagens | A cada X segundos, com fade ou slide |
+| Exibição de clima e notícias | Atualizados via API |
+| Relatórios internos | Ex: dias sem acidentes, treinamentos |
+| Tela cheia | Ativada manualmente ou com botão |
+| Cache local (opcional) | Para evitar falhas se a internet cair |
+| Modo escuro | Para melhor visualização em ambientes iluminados |
+
+---
+
+🧪 Exemplo de Fluxo de Uso
+
+1. A TV liga e abre o navegador com a URL fixa (ex: `empresa.com/publicidade`).
+2. O usuário clica em “Iniciar Apresentação”.
+3. A página entra em tela cheia e começa a exibir os conteúdos automaticamente.
+4. A cada X segundos, a imagem muda e os dados são atualizados.
