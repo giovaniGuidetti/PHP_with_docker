@@ -5,6 +5,8 @@ Layout - acima do later e responsável por identificar com uma coluna se está e
 Componentes - armazenam suas características, sendo texto, imagem, cor, dados no geral.
 
 
+Toda vez que for selecionado um LYOUT_TYPE criar os componentes especificos dele junto usando trigger, assim faço simplesmente operações de alter table ao inves de selects. Só sera possivel deletar algo se for o layout.
+
 
 💡 Recursos Úteis para o Admin Panel
 Editor visual tipo drag and drop (usando libs como GrapesJS ou React Flow).
