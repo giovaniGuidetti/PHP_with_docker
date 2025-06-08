@@ -12,9 +12,16 @@ services:
       - app-network
 
   php:
-    image: php:8.1-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./app:/var/www/html
+    environment:
+      DB_HOST: mysql
+      DB_NAME: app_db
+      DB_USER: user
+      DB_PASS: secret
     networks:
       - app-network
 
