@@ -29,12 +29,13 @@ class Database{
     }
     
     
-    public function getPessoas(): array {
-        $stmt = $this->connection->query('SELECT * FROM pessoas');
+    public function query($query, $params = []): array {
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute($params);
         return $stmt->fetchAll();
     }
 
-    public function getPessoasByName(string $name): array {
+    /*public function getPessoasByName(string $name): array {
         $stmt = $this->connection->prepare('SELECT * FROM pessoas WHERE name = :name');
         $stmt->bindValue(':name', $name);
         $stmt->execute();
@@ -46,7 +47,7 @@ class Database{
         $stmt->bindValue(':email', $email);
         $stmt->execute();
         return $stmt->fetch() ?: null;
-    }
+    }*/
 
 }
 
